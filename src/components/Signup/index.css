@@ -1,0 +1,42 @@
+.form-container {
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+button {
+  height: 20px;
+}
+
+.form-input {
+  height: 30px;
+  border: none;
+  margin-bottom: 20px;
+  border-bottom: 1px solid red;
+}
+
+.news-letter {
+  display: flex;
+  margin: 40px 0;
+}
+
+.form-submit-btn {
+  height: 40px;
+  background-color: #2db1bb;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+}
