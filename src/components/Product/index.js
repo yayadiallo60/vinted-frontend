@@ -4,7 +4,7 @@ import axios from "axios";
 const Product = ({ id }) => {
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  // console.log(id);
+  console.log(product);
 
   const fetchData = async () => {
     try {
