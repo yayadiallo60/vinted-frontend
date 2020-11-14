@@ -14,7 +14,7 @@ const Signup = ({ setUser }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(username, email, password);
+
     if (username && email && password) {
       try {
         const response = await axios.post(
@@ -26,7 +26,6 @@ const Signup = ({ setUser }) => {
         setEmail("");
         setPassword("");
         history.push("/");
-        // console.log(response.data);
       } catch (error) {
         console.log(error.message);
       }
