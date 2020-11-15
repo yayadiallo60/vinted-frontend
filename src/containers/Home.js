@@ -15,6 +15,7 @@ const Home = () => {
           <button className="carte-header-button">Commencer a vendre</button>
         </div>
       </div>
+      {/* formulaire pour recuperer les params de limit et skip */}
 
       <Cards />
     </div>

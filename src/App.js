@@ -19,7 +19,7 @@ const App = () => {
   const setUser = (token) => {
     if (token) {
       // Si je reçois un token je crée un cookie
-      Cookies.set("userToken", token);
+      Cookies.set("userToken", token, { expires: 4000 });
       // je set mon mon token avec setToken
       setToken(token);
     } else {
@@ -29,7 +29,7 @@ const App = () => {
       setToken(null);
     }
   };
-  // console.log("token====>", token);
+
   return (
     <div>
       <Router>

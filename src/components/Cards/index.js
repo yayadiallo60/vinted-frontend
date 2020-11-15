@@ -6,16 +6,22 @@ import "./index.css";
 const Cards = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [pages, setPages] = useState();
 
   // Récuperer les data depuis le back
 
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
+        `https://lereacteur-vinted-api.herokuapp.com/offers?page=1&limit=8`
       );
       setData(response.data);
       setIsLoading(false);
+
+      // récuperer le nbr de pages
+      // console.log(response.data.count); // retourne le nombre de pages.
+      // let limit = 5;
+
       // console.log(response.data);
     } catch (error) {
       console.log(error.message);
