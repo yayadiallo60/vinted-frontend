@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -37,7 +38,7 @@ const App = () => {
         <Header token={token} setUser={setUser} />
         <Switch>
           <Route path="/publish">
-            <Publish token={token} />
+            {token ? <Publish /> : <Redirect to="/signin" />}
           </Route>
           <Route path="/offer/:id">
             <Offer />
