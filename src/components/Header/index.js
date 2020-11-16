@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import vintedlogo from "../Header/VintedLogo.png";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const index = ({ token, setUser }) => {
+const Header = ({ token, setUser }) => {
+  let history = useHistory();
   return (
     <div className="header-container">
       <div className="header-content">
@@ -46,7 +48,7 @@ const index = ({ token, setUser }) => {
               </>
             )}
 
-            <Link to="/publish" className="vendre">
+            <Link to={token ? "/publish" : "/signin"} className="vendre">
               Vend tes articles
             </Link>
           </div>
@@ -56,4 +58,4 @@ const index = ({ token, setUser }) => {
   );
 };
 
-export default index;
+export default Header;
