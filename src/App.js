@@ -8,13 +8,14 @@ import Offer from "./containers/Offer";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Publish from "./containers/Publish";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 library.add(faSearch);
 
 const App = () => {
-  const [token, setToken] = useState(Cookies.get("useToken") || null);
+  const [token, setToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (token) => {
     if (token) {
@@ -35,6 +36,9 @@ const App = () => {
       <Router>
         <Header token={token} setUser={setUser} />
         <Switch>
+          <Route path="/publish">
+            <Publish token={token} />
+          </Route>
           <Route path="/offer/:id">
             <Offer />
           </Route>

@@ -1,9 +1,23 @@
-import React from "react";
+// import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 import photo from "../assets/images/vinted-img.jpeg";
 import Cards from "../components/Cards";
 
 const Home = () => {
+  // const [pages, setPages] = useState([]);
+  // const [limit, setlimit] = useState(5);
+
+  // const handleSetPages = (count) => {
+  //   const newPages = [...pages];
+  //   let elem = 1;
+  //   for (let i = 1; i <= count; i += limit) {
+  //     newPages.push(elem);
+  //     elem++;
+  //   }
+
+  //   setPages(newPages);
+  // };
+
   return (
     <div className="header">
       <div className="image-dechire">
@@ -15,9 +29,9 @@ const Home = () => {
           <button className="carte-header-button">Commencer a vendre</button>
         </div>
       </div>
-      {/* formulaire pour recuperer les params de limit et skip */}
 
       <Cards />
+      <div className="page">{}</div>
     </div>
   );
 };

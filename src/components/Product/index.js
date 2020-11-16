@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./index.css";
+import logovinted from "../Header/VintedLogo.png";
 
 const Product = ({ id }) => {
   const [product, setProduct] = useState({});
@@ -54,11 +55,15 @@ const Product = ({ id }) => {
             <div className="right-side-down">
               <p className="product-name"> {product.product_name}</p>
               <div className="product-user">
-                <img
-                  className="avatar"
-                  src={product.owner.account.avatar.secure_url}
-                  alt={product.owner.account.username}
-                />
+                {product.owner.account.avatar ? (
+                  <img
+                    className="avatar"
+                    src={product.owner.account.avatar.secure_url}
+                    alt="avatar"
+                  />
+                ) : (
+                  <img className="avatar" src={logovinted} alt="logovinted" />
+                )}
                 <p>{product.owner.account.username}</p>
               </div>
 

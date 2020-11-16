@@ -40,3 +40,7 @@ a {
   font-family: "Roboto";
   color: rgb(36, 35, 35);
 }
+
+.page span {
+  margin-right: 10px;
+}

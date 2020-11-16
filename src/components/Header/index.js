@@ -46,7 +46,9 @@ const index = ({ token, setUser }) => {
               </>
             )}
 
-            <button className="vendre">Vend tes articles</button>
+            <Link to="/publish" className="vendre">
+              Vend tes articles
+            </Link>
           </div>
         </div>
       </div>
