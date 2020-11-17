@@ -2,14 +2,40 @@ import React, { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ userId }) => {
   const stripe = useStripe();
-  const elements = useElements;
+  const elements = useElements();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      //Récupere les elements de la CB
+      const cardElement = elements.getElement(CardElement);
+
+      //   Requete vers strip pour obtenir un token
+      const stripeResponse = await stripe.createToken(cardElement, {
+        name: userId,
+      });
+      //   console.log(stripeResponse);
+      const stripeToken = stripeResponse.token.id;
+
+      //Envoi du token vers notre back
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/payment",
+        { stripeToken }
+      );
+
+      console.log(response);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <CardElement />
-        <button type="submit"></button>
+        <button type="submit">Valider la commande</button>
       </form>
     </div>
   );

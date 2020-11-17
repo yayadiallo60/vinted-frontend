@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./index.css";
 import logovinted from "../Header/VintedLogo.png";
 
@@ -8,6 +8,8 @@ const Product = ({ id }) => {
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   // console.log(product);
+
+  let history = useHistory();
 
   const fetchData = async () => {
     try {
@@ -66,9 +68,13 @@ const Product = ({ id }) => {
                   <img className="avatar" src={logovinted} alt="logovinted" />
                 )}
                 <p>{product.owner.account.username}</p>
-                <Link to={`/Payement/`}>
-                  <div className="boutonValider">Valider votre commande</div>
-                </Link>
+                <button
+                  onClick={() => {
+                    history.push("/payement", { title: product.product_name });
+                  }}
+                >
+                  Valider la commande
+                </button>
               </div>
             </div>
           </div>

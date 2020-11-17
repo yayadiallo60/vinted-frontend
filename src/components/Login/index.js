@@ -1,9 +1,10 @@
+import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./index.css";
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, user }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory();
@@ -17,8 +18,10 @@ const Login = ({ setUser }) => {
           { email, password }
         );
         setUser(response.data.token);
+        user(response.data.id);
         setEmail("");
         setPassword("");
+        console.log(response.data);
 
         history.push("/");
       } catch (error) {

@@ -18,6 +18,7 @@ library.add(faSearch);
 
 const App = () => {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
+  const [userId, setUserId] = useState();
 
   const setUser = (token) => {
     if (token) {
@@ -32,6 +33,9 @@ const App = () => {
       setToken(null);
     }
   };
+  const user = (userId) => {
+    setUserId(userId);
+  };
 
   return (
     <div>
@@ -45,13 +49,13 @@ const App = () => {
             <Offer />
           </Route>
           <Route path="/payement">
-            {token ? <Payement /> : <Redirect to="/signin" />}
+            {token ? <Payement userId={userId} /> : <Redirect to="/signin" />}
           </Route>
           <Route path="/signup">
             <Signup setUser={setUser} />
           </Route>
           <Route path="/signin">
-            <Login setUser={setUser} />
+            <Login setUser={setUser} user={user} />
           </Route>
           <Route path="/">
             <Home />
