@@ -44,3 +44,27 @@ a {
 .page span {
   margin-right: 10px;
 }
+
+/* ------------------------------------------- */
+/*               Publish                       */
+/* ------------------------------------------- */
+
+.publish-main {
+  background-color: #ebedee;
+}
+
+.publish-container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.categorie {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}

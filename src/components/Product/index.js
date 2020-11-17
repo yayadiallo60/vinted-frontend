@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, link } from "react-router-dom";
 import "./index.css";
 import logovinted from "../Header/VintedLogo.png";
 
 const Product = ({ id }) => {
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  console.log(product);
+  // console.log(product);
 
   const fetchData = async () => {
     try {
@@ -65,9 +66,10 @@ const Product = ({ id }) => {
                   <img className="avatar" src={logovinted} alt="logovinted" />
                 )}
                 <p>{product.owner.account.username}</p>
+                <Link to={`/Payement/`}>
+                  <div className="boutonValider">Valider votre commande</div>
+                </Link>
               </div>
-
-              <p></p>
             </div>
           </div>
         </div>

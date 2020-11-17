@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 import logovinted from "../Header/VintedLogo.png";
-// card.owner.account.avatar.secure_url
+
 const Card = ({ card, index }) => {
-  // console.log(card._id);
-  // div d'une carte
   return (
     <Link to={`/offer/${card._id}`}>
       <div className="card-container">
