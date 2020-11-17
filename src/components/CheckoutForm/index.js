@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 
-const CheckoutForm = ({ userId }) => {
+const CheckoutForm = ({ userId, title, amount }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -22,10 +22,10 @@ const CheckoutForm = ({ userId }) => {
       //Envoi du token vers notre back
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
-        { stripeToken }
+        { token: stripeToken, title, amount }
       );
 
-      console.log(response);
+      console.log(response.data);
     } catch (error) {
       console.log(error.message);
     }

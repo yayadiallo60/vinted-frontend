@@ -70,7 +70,10 @@ const Product = ({ id }) => {
                 <p>{product.owner.account.username}</p>
                 <button
                   onClick={() => {
-                    history.push("/payement", { title: product.product_name });
+                    history.push("/payement", {
+                      title: product.product_name,
+                      amount: product.product_price,
+                    });
                   }}
                 >
                   Valider la commande
