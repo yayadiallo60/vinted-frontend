@@ -68,7 +68,10 @@ const Product = ({ id }) => {
                   <img className="avatar" src={logovinted} alt="logovinted" />
                 )}
                 <p>{product.owner.account.username}</p>
+              </div>
+              <div className="validBtn">
                 <button
+                  className="payementBtn"
                   onClick={() => {
                     history.push("/payement", {
                       title: product.product_name,

@@ -55,11 +55,13 @@ const Publish = ({ token }) => {
         <div className="form">
           <h2>Vends ton article</h2>
           <form onSubmit={handleSubmit}>
-            <div className="form-content">
-              <div className="categorie">
+            <div className="form-content-file">
+              <div className="categorie-file">
+                <label htmlFor="label-file">+ Ajoute des photos</label>
                 <input
-                  className="input"
+                  className="input-file"
                   type="file"
+                  id="label-file"
                   name="picture"
                   onChange={(e) => {
                     setPicture(e.target.files[0]);
@@ -67,7 +69,7 @@ const Publish = ({ token }) => {
                 />
               </div>
             </div>
-            <div>
+            <div className="bloc-categorie">
               <div className="categorie">
                 <label htmlFor="title">Titre</label>
                 <input
@@ -83,7 +85,7 @@ const Publish = ({ token }) => {
               </div>
               <div className="categorie">
                 <label htmlFor="description">Décris ton article</label>
-                <input
+                <textarea
                   className="input"
                   type="text"
                   name="description"
@@ -95,7 +97,7 @@ const Publish = ({ token }) => {
                 />
               </div>
             </div>
-            <div>
+            <div className="bloc-categorie">
               <div className="categorie">
                 <label htmlFor="brand">Marque</label>
                 <input
@@ -115,6 +117,7 @@ const Publish = ({ token }) => {
                   className="input"
                   type="text"
                   name="size"
+                  id="size"
                   value={size}
                   placeholder="Taille"
                   onChange={(e) => {
@@ -164,7 +167,7 @@ const Publish = ({ token }) => {
                 />
               </div>
             </div>
-            <div>
+            <div className="bloc-categorie">
               <div className="categorie">
                 <label htmlFor="price">Prix</label>
                 <input

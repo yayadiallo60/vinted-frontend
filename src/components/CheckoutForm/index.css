@@ -1,0 +1,13 @@
+.validBtn {
+  margin: 0 auto;
+  height: 30px;
+  width: 90%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  background-color: #2db1bb;
+}
+
+.cbElt {
+  margin-bottom: 30px;
+}
