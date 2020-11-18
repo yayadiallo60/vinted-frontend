@@ -30,15 +30,15 @@ const CheckoutForm = ({ userId, title, amount }) => {
       //Envoi du token vers notre back
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
-        { token: stripeToken, title, amount: total }
+        { token: stripeToken, title, amount }
       );
-      console.log(response.data);
+      // console.log(response.data);
 
       if (response.data.status === "succeeded") {
         setCompleted(true);
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
 
